@@ -3,12 +3,14 @@ package modelo;
 public class Habitante {
 
     private String nombre;
+    private String apellido;
     private int edad;
     private int rut;
     private EstadoHabitante estado;
 
-    public Habitante(String nombre, int edad, int rut, EstadoHabitante estado) {
+    public Habitante(String nombre, String apellido, int edad, int rut, EstadoHabitante estado) {
         this.nombre = nombre;
+        this.apellido = apellido;
         this.edad = edad;
         this.rut = rut;
         this.estado = estado;
@@ -20,6 +22,14 @@ public class Habitante {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public void setNombre(String nombre) {
@@ -53,6 +63,7 @@ public class Habitante {
     @Override
     public String toString() {
         return "Nombre: " + nombre +
+                "\n Apellido: " + apellido +
                 "\n Edad: " + edad +
                 "\n Rut: " + rut +
                 "\n Estado: " + estado;
