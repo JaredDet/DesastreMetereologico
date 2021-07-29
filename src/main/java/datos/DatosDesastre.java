@@ -73,14 +73,14 @@ public class DatosDesastre {
         escritor.close();
     }
 
-    private void actualizar(Object objeto) throws IOException {
-        String json = Jackson.manejoConvertirObjetoaJSON(objeto);
+    private void actualizar(ArrayList<Desastre> desastres) throws IOException {
+        String json = Jackson.manejoConvertirArraylistaJSON(desastres);
         escribirJSON(json);
     }
 
-    public boolean manejoActualizar(Object objeto) {
+    public boolean manejoActualizar(ArrayList<Desastre> desastres) {
         try {
-            actualizar(objeto);
+            actualizar(desastres);
         } catch (IOException e) {
             LanzadorMensaje.lanzarError(e);
             return false;

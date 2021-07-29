@@ -7,7 +7,8 @@ import java.util.ArrayList;
 
 public class Desastre {
 
-    public static ArrayList<Desastre> desastres = new ArrayList<>();
+
+    public static ArrayList<Desastre> desastres;
     private Ubicacion epicentro;
     private TipoDesastre tipoDesastre;
     private String fecha;
@@ -17,10 +18,11 @@ public class Desastre {
         this.epicentro = epicentro;
         this.tipoDesastre = tipoDesastre;
         this.fecha = fecha;
+        new ArrayList<>();
     }
 
     public Desastre() {
-
+        new ArrayList<>();
     }
 
     public static void accederaManejo(String opcion) {
@@ -28,20 +30,20 @@ public class Desastre {
         DatosDesastre manejo = new DatosDesastre("src/main/resources/recursos.txt");
 
         switch (opcion) {
-            case "create" -> manejo.manejoCrear();
+            case "crear" -> manejo.manejoCrear();
             case "leer" -> desastres = manejo.manejoLeer("modelo.Desastre");
             case "borrar" -> manejo.borrar();
             default -> LanzadorMensaje.lanzarEntradaNoValida();
         }
     }
 
-    public void accederaManejo(String opcion, Desastre desastre) {
+    public void accederaManejo(String opcion, ArrayList<Desastre> desastres) {
 
         DatosDesastre manejo = new DatosDesastre("src/main/resources/recursos.txt");
 
         switch (opcion) {
-            case "create" -> manejo.manejoCrear();
-            case "actualizar" -> manejo.manejoActualizar(desastre);
+            case "crear" -> manejo.manejoCrear();
+            case "actualizar" -> manejo.manejoActualizar(desastres);
             case "borrar" -> manejo.borrar();
             default -> LanzadorMensaje.lanzarEntradaNoValida();
         }
@@ -69,5 +71,20 @@ public class Desastre {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    public static ArrayList<Desastre> getDesastres() {
+        return desastres;
+    }
+
+    public static void setDesastres(ArrayList<Desastre> desastres) {
+        Desastre.desastres = desastres;
+    }
+
+    @Override
+    public String toString() {
+        return "\n Epicentro: \n" + epicentro +
+                "\n tipoDesastre: " + tipoDesastre +
+                "\n Fecha: " + fecha;
     }
 }

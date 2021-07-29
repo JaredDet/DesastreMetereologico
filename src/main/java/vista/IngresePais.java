@@ -1,4 +1,4 @@
-package vista;
+/*package vista;
 
 import modelo.Ciudad;
 import modelo.Pais;
@@ -62,3 +62,4 @@ public class IngresePais extends JFrame implements ActionListener {
         pais.agregarCiudades(new Ciudad(nombre, zonaGeografica));
     }
 }
+*/

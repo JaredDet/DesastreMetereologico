@@ -26,14 +26,14 @@ public class Jackson {
         }
     }
 
-    private static String convertirObjetoaJSON(Object objeto) throws JsonProcessingException {
+    private static String convertirArrayListaJSON(ArrayList<Desastre> desastres) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.writeValueAsString(objeto);
+        return mapper.writeValueAsString(desastres);
     }
 
-    public static String manejoConvertirObjetoaJSON(Object objeto) {
+    public static String manejoConvertirArraylistaJSON(ArrayList<Desastre> desastres) {
         try {
-            return convertirObjetoaJSON(objeto);
+            return convertirArrayListaJSON(desastres);
         } catch (JsonProcessingException e) {
             LanzadorMensaje.lanzarError(e);
             return null;
