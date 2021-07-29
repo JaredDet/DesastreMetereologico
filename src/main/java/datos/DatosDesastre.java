@@ -1,9 +1,11 @@
 package datos;
 
 import errores.LanzadorMensaje;
+import modelo.Desastre;
 import utiilidades.Jackson;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class DatosDesastre {
 
@@ -44,14 +46,14 @@ public class DatosDesastre {
         }
     }
 
-    private Object leer(String nombreClase) throws IOException, ClassNotFoundException {
+    private ArrayList<Desastre> leer(String nombreClase) throws IOException, ClassNotFoundException {
 
         FileReader file = new FileReader(archivo);
         BufferedReader lector = new BufferedReader(file);
-        return Jackson.manejoConvertirJSONaObjeto(lector.readLine(), Class.forName(nombreClase));
+        return (ArrayList<Desastre>) Jackson.manejoConvertirJSONaArrayList(lector.readLine());
     }
 
-    public Object manejoLeer(String nombreClase) {
+    public ArrayList<Desastre> manejoLeer(String nombreClase) {
 
         try {
             return leer(nombreClase);
