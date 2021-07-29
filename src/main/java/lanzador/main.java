@@ -1,8 +1,6 @@
-package Launcher;
+package lanzador;
 
 import modelo.*;
-
-import java.util.ArrayList;
 
 public class main {
 
